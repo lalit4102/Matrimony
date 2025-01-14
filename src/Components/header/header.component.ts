@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 export class HeaderComponent {
   
   isSignUpOpen = false;
+  isLogInOpen = false;
+
   user = {
     firstName: '',
     lastName: '',
@@ -31,6 +33,26 @@ export class HeaderComponent {
   registerUser() {
     console.log('User registered:', this.user);
     this.closeSignUp();
+  }
+
+
+  login = {
+    username: '',
+    password: '',
+  };
+
+  openLogIn() {
+    this.isLogInOpen = true;
+    this.isSignUpOpen = false;  // Close Sign Up if Log In is opened
+  }
+
+  closeLogIn() {
+    this.isLogInOpen = false;
+  }
+
+  loginUser() {
+    console.log('User logged in:', this.login);
+    this.closeLogIn();
   }
 
   badgevisible = false;
